@@ -27,4 +27,4 @@ Tests can be compiled directly with a C compiler:
 gcc -std=c99 -Iinclude tests/test_sha1.c -o build/test_sha1
 ```
 
-Test vectors are taken from NIST FIPS 180-4 and RFC 3174.
+Test vectors are taken from RFC 3174.
