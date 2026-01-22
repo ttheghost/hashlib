@@ -29,6 +29,11 @@ typedef struct
     char digest[HASH_BYTES];
 } sha1;
 
+void sha1_init(sha1 *self);
+void sha1_update(sha1 *self, char *data, uint32_t len);
+void sha1_final(sha1 *self);
+void sha1_transform(uint32_t state[5], char* buffer);
+
 sha1 sha1_hash(char *data, uint32_t len) {
     sha1 cnx;
     sha1_init(&cnx);
@@ -95,10 +100,10 @@ typedef union
 
 static inline uint32_t blk(long16* block, uint64_t i) {
     return (
-        block->l[i & 15] = block->l[(i + 13) & 15]
+        block->l[i & 15] =rotl(block->l[(i + 13) & 15]
                            ^ block->l[(i + 8) & 15]
                            ^ block->l[(i + 2) & 15]
-                           ^ rotl(block->l[i & 15], 1)
+                           ^ block->l[i & 15], 1)
     );
 }
 
