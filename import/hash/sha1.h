@@ -1,7 +1,7 @@
 // Copyright (c) 2026 Mohammed Ifkirne. All rights reserved.
 // Use of this source code is governed by the MIT license.
 //
-// Implementation was off Christoffer Lerno's SHA-1 C3C implementation
+// Implementation was off Christoffer Lerno's SHA-1 C3C stdlib implementation
 
 #pragma once
 
